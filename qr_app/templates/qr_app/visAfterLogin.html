@@ -2,15 +2,15 @@
 {% block content %}
 <form class="contact100-form validate-form">
     <span class="contact100-form-title">
-        로그인 하세요
+        방문객 "{{request.session.v_id}}"님<br>안녕하세요
     </span>
     <!-- 세대원 로그인 -->
     <div class="container-contact100-form-btn">
         <div class="wrap-contact100-form-btn">
             <div class="contact100-form-bgbtn"></div>
-            <a href = "{% url 'residentLogin' %}" class="contact100-form-btn">
+            <a href = "{% url 'visitForm' %}" class="contact100-form-btn">
                 <span>
-                    세대원
+                    방문신청서 작성
                     <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                 </span>
             </a>
@@ -20,21 +20,20 @@
     <div class="container-contact100-form-btn">
         <div class="wrap-contact100-form-btn">
             <div class="contact100-form-bgbtn"></div>
-            <a href = "{% url 'visitorLogin' %}" class="contact100-form-btn">
+            <a href = "{% url 'visPermittedVisit' %}" class="contact100-form-btn">
                 <span>
-                    방문객
+                    허가된 요청 리스트 보기
                     <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
                 </span>
             </a>
         </div>
     </div>
-    <a href = "{%url 'residentSignUp' %}" style = "display: flex; justify-content: center; align-items: center; height: 50px; color: #333333 !important;">
-        <span>세대원 회원가입</span></a>
-    <a href = "{%url 'visitorSignUp' %}" style = "display: flex; justify-content: center; align-items: center; margin-top: -10px; color: #333333 !important;">
-        <span>방문객 회원가입</span></a>
-    
+    <a href = "{%url 'visitorLogout' %}" style = "display: flex; justify-content: center; align-items: center; height: 50px; color: #333333 !important;">
+    <span>로그아웃</span>
+    </a>
+
+
 </form>
 
 {% endblock %}
 
-			

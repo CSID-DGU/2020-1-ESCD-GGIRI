@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method = "post" action = "doVisitForm/"  class="contact100-form validate-form" >
+
+    {% csrf_token %}
+    <span class="contact100-form-title">
+        방문 신청서
+    </span>
+
+    <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <span class="label-input100">이름</span>
+        <input class="input100" type="text" name="uname" placeholder="이름을 입력해주세요">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div>
+        <span class="label-input100">방문하려는 동호수 (숫자만 입력해주세요)</span>
+            <div class="form-row">
+                <div class="col">
+                <input type="text" class="form-control" name = "building" placeholder="동">
+                </div>
+                <div class="col">
+                <input type="text" class="form-control" name = "floor" placeholder="층">
+                </div>
+                <div class="col">
+                <input type="text" class="form-control" name = "room" placeholder="호">
+                </div>
+            </div>
+
+    </div>
+<br>
+    <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <span class="label-input100">방문목적</span>
+        <input class="input100" type="text" name="purpose" placeholder="방문 목적을 간단하게 입력해주세요">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="container-contact100-form-btn">
+        <div class="wrap-contact100-form-btn">
+            <div class="contact100-form-bgbtn"></div>
+            <button class="contact100-form-btn">
+                <span>
+                    방문신청
+                    <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                </span>
+                <!-- <span> -->
+                    <!-- Submit -->
+                    <!-- <input type = "submit"  value = "방문신청"> -->
+                    <!-- <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i> -->
+                <!-- </span> -->
+            </button>
+        </div>
+    </div>
+    <a href = "{%url 'visitorLogout' %}" style = "display: flex; justify-content: center; align-items: center; height: 50px; color: #333333 !important;">
+    <span>로그아웃</span>
+    </a>
+</form>
+{% endblock %}

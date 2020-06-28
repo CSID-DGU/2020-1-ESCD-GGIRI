@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% load qr_code %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <form class="contact100-form validate-form">
+    </form>
+    <!--<img src="{% static 'qr_app/images/helloworld_qrcode.png' %}"></p>-->
+    <p style = "display: table; margin-left: auto; margin-right: auto; font-size: 20px;">1분안에 인증을 완료해주세요!</p>
+    <img src="http://api.qrserver.com/v1/create-qr-code/?size={{ size}}x{{ size }}&data={{qrCode}}" style = "display: table; margin-left: auto; margin-right: auto;">
+    <a href = "{%url 'residentLogout' %}" style = "display: flex; justify-content: center; align-items: center; height: 50px; color: #333333 !important;">
+    <span>로그아웃</span>
+    </a>
+</body>
+</html>
+<script>
+    window.setTimeout(function () {
+    location.href = "{% url 'residentLogin' %}";
+    }, 60000); // refresh/redirect after 60 seconds.
+</script>
+{% endblock %}

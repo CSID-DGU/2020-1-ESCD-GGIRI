@@ -38,10 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # app
-    'qr_code',
     'user_app',
     'qr_app',
     'django_user_agents',
+    'qr_code',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'QrSecurityProject', 'static')
 ]
@@ -135,3 +136,9 @@ STATICFILES_DIRS = [
 # Name of cache backend to cache user agents. If it not specified default
 # cache alias will be used. Set to `None` to disable caching.
 USER_AGENTS_CACHE = 'default'
+
+# AUTH_USER_MODEL = 'app명.model class명'
+# AUTH_USER_MODEL = 'qr_app.QrAppResident'
+# AUTH_USER_MODEL = 'qr_app.QrAppResident'
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True

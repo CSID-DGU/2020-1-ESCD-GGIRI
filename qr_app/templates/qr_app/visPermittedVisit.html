@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<form class="contact100-form validate-form" >
+    <span class="contact100-form-title">
+        방문객 "{{request.session.v_id}}"님의 허가된 방문요청 리스트
+    </span>
+    <table align="center" width="100%" height="70%">
+        <th>번호</th>
+        <th>동 호수</th>
+        <th>qr생성 버튼</th>
+        {% for request in permitted_request_list %}
+        <tr>
+            <td>{{ forloop.counter }}.</td>
+            <td>{{request.building_id}}동 {{request.floor}}층 {{request.room_id}}호</td>
+            <td>
+                <div class="container-contact100-form-btn">
+                    <div class="wrap-contact100-form-btn">
+                        <div class="contact100-form-bgbtn"></div>
+                        <a href = "{% url 'visQrDisplay' %}" class="contact100-form-btn">
+                            <span>
+                                qr생성
+                                <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href = "{%url 'visitorLogout' %}" style = "display: table; margin-left: auto; margin-right: auto; color: #333333 !important; margin-top: 50px">
+    <span>로그아웃</span>
+    </a>
+</form>
+{% endblock %}
